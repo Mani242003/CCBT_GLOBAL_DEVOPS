@@ -10,6 +10,6 @@ on:
 
 jobs:
   call-workflow:
-    uses: Mani242003/CCBT_GLOBAL_DEVOPS_WF/.github/workflows/cmo-build.yml
+    uses: Mani242003/CCBT_GLOBAL_DEVOPS_WF/.github/workflows/cmo-build.yml@main
     with:
       relno: ${{ inputs.relno }}
