@@ -6,10 +6,17 @@ on:
       relno:
         description: 'Release Number'
         required: true
-        default: '1.0'
+        default: '1.0'   
+      branchName:
+        description: 'Branch Name'
+        required: true
+        default: develop
+
 
 jobs:
   call-workflow:
     uses: Mani242003/CCBT_GLOBAL_DEVOPS_WF/.github/workflows/cmo-build.yml@main
     with:
       relno: ${{ inputs.relno }}
+      branchName: ${{ inputs.branchName }}
+      
