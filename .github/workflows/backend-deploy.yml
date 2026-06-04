@@ -16,7 +16,7 @@ on:
 
 jobs:
   call:
-    uses: your-username/CCBT_GLOBAL_DEVOPS_WF/.github/workflows/Final_CmoMobile_Deploy.yml@main
+    uses: Mani242003/CCBT_GLOBAL_DEVOPS_WF/.github/workflows/Final_CmoMobile_Deploy.yml@main
     with:
       environment: ${{ inputs.environment }}
       projectName: ${{ inputs.projectName }}
