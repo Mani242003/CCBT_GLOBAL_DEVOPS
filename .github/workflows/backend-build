@@ -1,0 +1,25 @@
+name: CMO Mobile Backend - Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        default: local
+      projectName:
+        default: cmomobile-local
+      selectpackage:
+        type: choice
+        options: [ALL]
+        default: ALL
+      selectall:
+        default: ALL
+
+jobs:
+  call:
+    uses: your-username/CCBT_GLOBAL_DEVOPS_WF/.github/workflows/Final_CmoMobile_Deploy.yml@main
+    with:
+      environment: ${{ inputs.environment }}
+      projectName: ${{ inputs.projectName }}
+      selectpackage: ${{ inputs.selectpackage }}
+      selectall: ${{ inputs.selectall }}
+      runner: ubuntu-latest
