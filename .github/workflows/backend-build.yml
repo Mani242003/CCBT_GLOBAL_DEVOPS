@@ -1,22 +1,35 @@
-name: Backend Build Entry
+name: CMO Mobile Backend - Build
 
 on:
   workflow_dispatch:
     inputs:
+      relordev:
+        type: choice
+        options: [Development, Release]
+        default: Development
       relno:
-        description: 'Release Number'
-        required: true
-        default: '1.0'   
+        default: '1.0'
       branchName:
-        description: 'Branch Name'
-        required: true
         default: develop
-
+      buildimage:
+        type: choice
+        options: [Y, N]
+        default: Y
+      uploadimage:
+        type: choice
+        options: [Y, N]
+        default: Y
+      environment:
+        default: local
 
 jobs:
-  call-workflow:
-    uses: Mani242003/CCBT_GLOBAL_DEVOPS_WF/.github/workflows/cmo-build.yml@main
+  call:
+    uses: Mani242003/CCBT_GLOBAL_DEVOPS_WF/.github/workflows/cmo-mobile-backend-build.yml@main
     with:
+      relordev: ${{ inputs.relordev }}
       relno: ${{ inputs.relno }}
       branchName: ${{ inputs.branchName }}
-      
+      buildimage: ${{ inputs.buildimage }}
+      uploadimage: ${{ inputs.uploadimage }}
+      environment: ${{ inputs.environment }}
+      runner: ubuntu-latest
